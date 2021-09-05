@@ -1,0 +1,58 @@
+<div>
+   <div style="background-color: whitesmoke" class="row justify-content-center">
+     <div  class="col-6">    
+  <h2>Fill the form</h2>
+
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="userFormGroup">
+      
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Name</label>
+        <input type="text"
+         class="form-control" 
+         id="Name"
+         formControlName="name"
+         >
+         <span class="error-message" *ngIf="!userFormGroup.get('name')?.valid && userFormGroup.get('name')?.touched ">Student Name is required</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">GPA</label>
+        <input type="text" 
+        class="form-control" 
+        id="GPA"
+        formControlName="gpa"
+        >
+        <span class="error-message" *ngIf=" !userFormGroup.get('gpa')?.valid && userFormGroup.get('gpa')?.touched ">Student GPA is required</span>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="!userFormGroup.valid" >Add Student</button>
+      <div style="color:blue ;">{{message}}</div>
+    </form>
+  </div>
+</div>
+<h1></h1>
+<div>
+
+</div>
+</div>
+<div>
+
+  <table class="table"  >
+    <thead>
+        <tr>
+            <th>#</th>
+            <th >Name</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody  >
+
+    <tr *ngFor="let student of students , let i = index">
+        <td>{{i}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.gpa}}</td>
+    
+    </tr>
+  </tbody>
+</table>
+</div>
+

@@ -1,0 +1,51 @@
+<!-- <div>here</div>
+<input class="form-control" [(ngModel)]="gpa" type="text">
+<input  class="form-control"  [(ngModel)]="name" type="text">
+<button class="btn btn-primary" (click)="onClick2()">Add Student</button> -->
+
+<div class="container">
+    <div style="background-color: whitesmoke" class="row justify-content-center">
+      <div  class="col-6">    
+   <h2>Fill the form</h2>
+ 
+   <form (ngSubmit)="onSubmit()" [formGroup]="userFormGroup">
+       
+       <div class="mb-3">
+         <label for="exampleInputPassword1" class="form-label">Name</label>
+         <input type="text"
+          class="form-control" 
+          id="Name"
+          formControlName="name"
+          >
+          <span class="error-message" *ngIf="!userFormGroup.get('name')?.valid && userFormGroup.get('name')?.touched ">Course Name is required</span>
+       </div>
+       <button type="submit" class="btn btn-dark" [disabled]="!userFormGroup.valid" >Add Course</button>
+       <div style="color:blue ;">{{message}}</div>
+     </form>
+   </div>
+ </div>
+ <h1></h1>
+ <div>
+ 
+ </div>
+ </div>
+ <div>
+ 
+ 
+   <table class="table">
+     <thead>
+         <tr>
+             <th>#</th>
+             <th >Name</th>
+         </tr>
+     </thead>
+ 
+     <tr *ngFor="let student of courses , let i = index">
+         <td>{{i}}</td>
+         <td>{{student.name}}</td>
+     
+     </tr>
+ </table>
+ </div>
+ <!-- <div style="background-image: url('task3\src\app\images\Aston-Webb.jpg');"></div> -->
+ 

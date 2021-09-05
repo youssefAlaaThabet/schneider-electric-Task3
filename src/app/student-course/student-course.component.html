@@ -1,0 +1,48 @@
+
+
+
+<div class="container">
+  <div style="background-color: whitesmoke" class="row justify-content-center">
+    <div  class="col-6">    
+        <h2>Registration</h2>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="userFormGroup">
+      
+    <div >
+    <label for="exampleInputPassword1" class="form-label">Student Name</label>
+    <select formControlName= "studentId"   style="width: 10cm;" class=" form-select "  >
+      <option  *ngFor="let item of students" [value]="item.id">{{item.name}}</option>
+    </select>
+    </div>
+    <div >
+      <label for="exampleInputPassword1" class="form-label">Course Name</label>
+      <select formControlName= "courseId" style="width: 10cm;" class=" form-select "  >
+        <option  *ngFor="let item of courses" [value]="item.id">{{item.name}}</option>
+      </select>
+      </div>
+      <button style="margin-top: 0.5cm; margin-bottom: 0.5cm;" type="submit" class="btn btn-dark"  >Register to Course</button>
+      <div style="color:blue ;">{{message}}</div>
+
+</form>
+   
+
+<div>
+    <table class="table"  >
+      <thead>
+          <tr>
+              <th>#</th>
+              <th >Student ID</th>
+              <th>Course ID</th>
+          </tr>
+      </thead>
+      <tbody  >
+      <tr *ngFor="let studentcourse of studentCourses , let i = index">
+          <td>{{i}}</td>
+          <td>{{studentcourse.studentId}}</td>
+          <td>{{studentcourse.courseId}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  
